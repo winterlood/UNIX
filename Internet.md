@@ -111,3 +111,113 @@ $ nslookup 호스트명
 
 ex > nslookup www.naver.com
 
+User Info
+---
+
+~~~
+$ finger [user name]
+~~~
+
+> 사용자의 로그인 정보, 언제 어디서 했는지도 다나왕!
+
+Send Message
+===
+
+write
+---
+
+~~~
+$ write 사용자명 [단말기명]
+~~~
+> 단말기명이란 tty를 의미함...
+
+wall
+---
+
+~~~
+$ wall [말,파일]
+~~~
+> write all 의 준말
+
+모두에게 공지를 때려버린다.
+
+wall 명령은 일반사용자는 사용할 수 없다.
+
+super user처럼 tty그룹에 속해있는 사용자만 가능하다.
+
+mesg
+---
+
+~~~
+$ mesg [y|n]
+~~~
+> 메세지 수신을 허용하거나 거절한다.
+
+그냥 mesg 만 치면 현재 메세지 수신 여부를 출력한다.
+
+파일 전송
+===
+
+ftp
+---
+
+ftp는 File Transfer Protocol 의 약자이다
+
+파일을 전송하는 프로토콜이다.
+
+Server - Client 사이의 파일 전송을 위한 서비스를 제공한다.
+
+~~~
+$ ftp -n [hostname]
+$ sftp -n [hostname]
+~~~
+> hostname 으로 지정된 FTP 서버에 접속하여, 파일을 업로드 혹은 다운로드 한다.<br>
+> 요즘은 github에 자료가 훨씬 많아서 wget을 쓰는게 더 ..
+
+원격 접속
+===
+
+RDP
+---
+
+Remode Desktop Protocol 
+
+원격 데스크톱 연결 프로토콜이다.
+
+연결을 직접 해보도록 하자.
+
+~~~
+apt install xrdp
+~~~
+
+나는 ubuntu 를 사용하고 있으므로, yum을 사용하지 않는다.
+
+
+~~~
+systemctl enable xrdp.service
+~~~
+
+부팅시 xrdp 서비스가 자동으로 실행되도록 설정한다.
+
+윈도우의 서비스 프로그램과 비슷한 맥락이다.
+
+
+~~~
+
+~~~
+
+ssh
+---
+
+Secure Shell의 준말이다.
+
+~~~
+ssh 사용자명@호스트명
+ssh -l 사용자명 호스트명
+~~~
+> window 10 에서는 openSSh를 제공한다!!<br>
+> C/Window/System32/OpenSsh 에서 ssh ~~ 하면 된당
+
+
+
+
