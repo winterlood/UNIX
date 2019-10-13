@@ -79,3 +79,59 @@ C언어는 데이터 입출력
 
 > 결론적으로 시스템 콜은 커널의 해당 모듈을 직접 호출하여 작업하고 결과값을 직접 리턴받는다. <br>
 > 라이브러리는 직접 호출하는 것이 아니다.
+
+MAN
+---
+
+유닉스 시스템은 명령, 함수 등 시스템이 제공하는 다양한 서비스에 대한 MAN 페이지를 제공한다.
+
+사용자는 MAN [검색 명령어] 를 통하여, MAN 페이지를 검색하고 Reference를 얻을 수 있다고 한다.
+> 그냥 StackOverFlow를 보는게 더 .... 크흠
+
+흔히들 사용하는 일반적인 명령에 관한 설명은 섹션 1에 있다고 한다.
+
+오류처리
+---
+
+시스템 콜은 성공하면 0을 리턴, 실패하면 -1을 리턴한다.
+
+전역변수 ERRNO에 오류코드를 저장하며, 시스템의 오류 코드는 여러가지가 존재한다.
+
+~~~
+#include <unistd.h>
+#include <stdio.h>
+
+extern int errno;
+
+int main(void) {
+	if(access("unix.txt", F_OK) == -1) {
+		printf("errono=%d\n", errno);
+	}
+
+	return 0;
+}
+~~~
+
+라이브러리 함수는 오류발생시 NULL을 RETURN 한다.
+
+물론 INT형을 RETURN 하게 되어있으면 -1을 시스템 콜과 동일하게 RETURN 한다.
+
+~~~
+#include <unistd.h>
+#include <stdio.h>
+
+extern int errno;
+
+int main(void) {
+	FILE *fp;
+	
+	if ((fp = fopen("unix.txt", "r")) == NULL) {
+		printf("errno=%d\n", errno);
+		exit(1);
+	}
+	fclose(fp);
+
+	return 0;
+}
+~~~
+
