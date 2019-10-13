@@ -187,24 +187,31 @@ Remode Desktop Protocol
 연결을 직접 해보도록 하자.
 
 ~~~
-apt install xrdp
+$ apt install xrdp
 ~~~
 
 나는 ubuntu 를 사용하고 있으므로, yum을 사용하지 않는다.
 
 
 ~~~
-systemctl enable xrdp.service
+$ systemctl enable xrdp.service
 ~~~
 
 부팅시 xrdp 서비스가 자동으로 실행되도록 설정한다.
 
 윈도우의 서비스 프로그램과 비슷한 맥락이다.
 
+![](./img/firewall.JPG)
+
+요렇게 방화벽도 열어주자
 
 ~~~
-
+$ systemctl start xrdp.service
 ~~~
+
+xrdp서비스를 실행한다.
+
+
 
 ssh
 ---
